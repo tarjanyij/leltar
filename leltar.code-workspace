@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"sqltools.connections": [
+			{
+				"connectionTimeout": 30,
+				"database": "Inventory",
+				"dialect": "MSSQL",
+				"name": "TJOZSEF-PC",
+				"password": "Web12345",
+				"port": 1433,
+				"server": "TJOZSEF-PC",
+				"username": "web"
+			}
+		]
+	}
+}
