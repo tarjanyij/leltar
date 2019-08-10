@@ -3,3 +3,6 @@ https://docs.microsoft.com/hu-hu/aspnet/core/getting-started/?view=aspnetcore-2.
 
 Itt kell folytatni
 https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-2.2&tabs=visual-studio-code#return-values
+
+Konténerizálás 
+https://docs.microsoft.com/en-us/dotnet/core/docker/build-container
