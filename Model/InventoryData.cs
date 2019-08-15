@@ -23,5 +23,6 @@ namespace Inventory.Model
         public int BruttoErtek { get; set; }
         public int LeltSzemely { get; set; }
         public string LeltSzemelyNeve { get; set; }
+         public string Megnevezes2 { get; set; }
     }
 }
