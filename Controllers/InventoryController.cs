@@ -18,8 +18,6 @@ namespace leltar.Controllers
         public InventoryController(InventoryDbContext context)
         {
             _context = context;
-
-            
         }
         // GET: api/Todo/5
         [HttpGet("{Vonalkod}")]
@@ -34,5 +32,5 @@ namespace leltar.Controllers
 
             return inventoryItem;
         }
-            }
+    }
 }
