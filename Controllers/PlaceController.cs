@@ -25,8 +25,10 @@ namespace leltar.Controllers
         [HttpGet("{LeltarKorzet}")]
         public async Task<List<InventoryData>> GetPlaceData(string LeltarKorzet)
         {
-             
-             var inventoryItem = await _context.InventoryDatas.Where(m=>m.LeltarKorzet == LeltarKorzet).ToListAsync();
+            var inventoryItem = await _context.InventoryDatas
+                                            .Where(m=>m.LeltarKorzet == LeltarKorzet)
+                                            .ToListAsync();
+
             if (inventoryItem == null)
             {
                 return null;
@@ -37,24 +39,25 @@ namespace leltar.Controllers
     }
     [Route("api/[controller]")]
     [ApiController]
-    public class NamePlaceController : ControllerBase
+    public class AreaController : ControllerBase
     {
          private readonly InventoryDbContext _context;
 
-        public NamePlaceController(InventoryDbContext context)
+        public AreaController(InventoryDbContext context)
         {
             _context = context;
         }
        
 
         [HttpGet()]
-        public async Task<InventoryData> GetPlaceData()
+        public async Task<List<InventoryData>> GetPlaceData()
         {
-             
-             var inventoryItem = _context.InventoryDatas.Select(m=>m.LeltarKorzetMegnevezes);
-            
+            var inventoryItem = await _context.InventoryDatas
+                                        .GroupBy(m=>m.LeltarKorzet)   //csoportosítom adott érték alapján
+                                        .Select(g => g.First())       // minden csoportból veszerm az elsõt
+                                        .ToListAsync();
 
-            return  inventoryItem.Distinct();
+            return  inventoryItem;
         }
     }
 }

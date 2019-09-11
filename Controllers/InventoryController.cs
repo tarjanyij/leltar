@@ -23,7 +23,8 @@ namespace leltar.Controllers
         [HttpGet("{Vonalkod}")]
         public async Task<ActionResult<InventoryData>> GetInventoryData(string Vonalkod)
         {
-            var inventoryItem = await _context.InventoryDatas.SingleOrDefaultAsync(predicate: m => m.Vonalkod == Vonalkod);
+            var inventoryItem = await _context.InventoryDatas
+                                                .SingleOrDefaultAsync(predicate: m => m.Vonalkod == Vonalkod);
 
             if (inventoryItem == null)
             {
